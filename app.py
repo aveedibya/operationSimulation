@@ -306,7 +306,7 @@ def update_graph_live(call_table_json):
 #--------------------------------------------------
 @app.callback(Output('call-wait-time-graph', 'figure'),
               [Input('agent_table', 'children'),
-               Input('live-update-graph', 'hoverData')])
+               Input('live-update-graph', 'clickData')])
 def update_wait_time_graph(agent_table_json, time_filter):
     '''
     '''
@@ -355,7 +355,7 @@ def update_wait_time_graph(agent_table_json, time_filter):
 #--------------------------------------------------
 @app.callback(Output('agent-view-graph', 'figure'),
               [Input('agent_table', 'children'),
-               Input('live-update-graph', 'hoverData')])
+               Input('live-update-graph', 'clickData')])
 def update_agent_view(agent_table_json, time_filter):
     '''
     '''
@@ -430,7 +430,7 @@ def update_agent_view(agent_table_json, time_filter):
 #--------------------------------------------------
 @app.callback(Output('bp-graph', 'figure'),
               [Input('agent_table', 'children'),
-               Input('live-update-graph', 'hoverData')])
+               Input('live-update-graph', 'clickData')])
 def update_bp(agent_table_json, time_filter):
     '''
     '''
