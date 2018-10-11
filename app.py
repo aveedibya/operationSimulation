@@ -82,7 +82,7 @@ To see a distribution at an interval level, refer charts shown below.
 '''
 
 footnote_markdown = '''
-Created by: Aveedibya Dey | [Source Code](https://github.com/aveedibya/regressionSimulator) | [Contact Me/Leave Feedback](https://aveedibyadey.typeform.com/to/guGq1P) | See other creations: [Regression Simulator](https://github.com/aveedibya/regressionSimulator), [Forecasting Tool](https://ultimateforecastingtool.herokuapp.com/)
+Created by: Aveedibya Dey | [Source Code](https://github.com/aveedibya/operationSimulation) | [Contact Me/Leave Feedback](https://aveedibyadey.typeform.com/to/guGq1P) | See other creations: [Regression Simulator](https://github.com/aveedibya/regressionSimulator), [Forecasting Tool](https://ultimateforecastingtool.herokuapp.com/)
     '''
 
 #-------------------------------
