@@ -12,9 +12,14 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output, State
+
+#Internal package with functions and classes
 import call_gen_demo as cgd
 
+#-------------------------------
 app = dash.Dash()
+app.title = 'Operations Simulator'
+server = app.server
 
 #-------------------------------
 #Define Formatting Stuff
@@ -374,8 +379,8 @@ def update_agent_view(agent_table_json, time_filter):
         if current_hover is not None:
             curr_agent = curr_agent[(curr_agent['call_handle_time_elapsed'] > cgd.timeElapsed(current_hover)) & (curr_agent['call_handle_time_elapsed'] < cgd.timeElapsed(cgd.timeAddition(current_hover, [0,30,0])))].reset_index()
         curr_agent['agent_index'] = 'Agent-' + str(agent)
-        print('-----------------')
-        print(curr_agent)
+        #print('-----------------')
+        #print(curr_agent)
         #Create a colorlist for busy/available status
         colorlist = []
         #Create a list for agent status

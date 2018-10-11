@@ -66,8 +66,8 @@ def agent_table(agent_count, call_table_df):
         
         agent_status = updateAgentStatus(call_table_df['call_start_time'][i], agent_status, agent_table_df)
         agentPicked = assignCalltoAgent(agent_status, agent_table_df)
-        print('agent picked is: ',agentPicked)
-        print('Agent Status List: ', agent_status)
+        #print('agent picked is: ',agentPicked)
+        #print('Agent Status List: ', agent_status)
         
         if agent_status[agentPicked] == 1:
             call_handle_start_time = call_table_df['call_start_time'][i]
@@ -119,7 +119,7 @@ def agentNextAvail(agent_status, agent_table_df):
             agentAvail[i] = max(agent_table_df[agent_table_df['agent_index']==i]['call_end_time'])
         else:
             agentAvail[i] = dt.time(0,0,0)
-    print('Agent Available List: ', agentAvail)
+    #print('Agent Available List: ', agentAvail)
     return agentAvail
 
 #Define a function to pick an agent randomly out of available agent at a point in time
@@ -149,7 +149,7 @@ def liveTime(df):
     nowtime = dt.datetime.now()
 
     for i in range(len(df)):
-        print(i)
+        #print(i)
         df[df.columns[0]][i] = timeAddition(df[df.columns[0]][i], [nowtime.hour, nowtime.minute, nowtime.second])
     
     return df
