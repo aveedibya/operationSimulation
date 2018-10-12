@@ -64,22 +64,22 @@ _If you are not sure what to enter, try this: `Number of agents: 3, Peak call co
 
 '''
         
-text_to_show = '''###### Simulation Specifications:
+text_to_show = '''###### Simulation Results:
 
 Below parameters show a summary of the statistics from the simulation that was run:
 
  1. __Calls: {}__
    - Total Calls: __{:.0f}__
-   - Avg. Handling Time (AHT) for these calls: __{:.1f} sec__
-   - AHT Range in Simulation (Min-Max): __{:.0f}-{:.0f} sec__
-   - Call Wait Time Range (Min-Max): __{:.1f}-{:.1f} sec__
+   - Avg. Handling Time (AHT): __{:.1f} sec__
+   - AHT Range in Simulation: __{:.0f}-{:.0f} sec__
+   - Call Wait Time Range: __{:.1f}-{:.1f} sec__
 
  2. __Agent Statistics:__  
    - Total number of agents staffed: __{:.0f}__
-   - _All agents were assumed to be staffed 24x7 (which is impractical, but assumed for simplicity)_
+   - All agents were assumed to be staffed 24x7
 
-To see a distribution at an interval level, refer charts shown below. 
 '''
+#To see a distribution at an interval level, refer charts shown below. 
 
 footnote_markdown = '''
 Created by: Aveedibya Dey | [Source Code](https://github.com/aveedibya/operationSimulation) | [Contact Me/Leave Feedback](https://aveedibyadey.typeform.com/to/guGq1P) | See other creations: [Regression Simulator](https://github.com/aveedibya/regressionSimulator), [Forecasting Tool](https://ultimateforecastingtool.herokuapp.com/)
@@ -118,7 +118,7 @@ app.layout = html.Div(
         #---
         #Call Count Graph
         html.Div([html.Div([dcc.Graph(id='live-update-graph', config={'displayModeBar': False}, figure=graphingRegion(450), clear_on_unhover=True, hoverData={'points':[{'customdata': 'showall'}]})], style={'width': '69%', 'display': 'inline-block'}),
-                  html.Div(dcc.Markdown(id='simulation-details'), style={'width': '29%',  'fontSize': '70%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '5', 'paddingTop': '10'})]),
+                  html.Div(dcc.Markdown(id='simulation-details'), style={'width': '29%',  'fontSize': '80%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '5', 'paddingTop': '10'})]),
         #---
         #Call Wait Time and BP Graphs
         html.Div([dcc.Graph(id='call-wait-time-graph', config={'displayModeBar': False}, figure=graphingRegion(225)),
@@ -306,7 +306,7 @@ def update_graph_live(call_table_json):
 #--------------------------------------------------
 @app.callback(Output('call-wait-time-graph', 'figure'),
               [Input('agent_table', 'children'),
-               Input('live-update-graph', 'clickData')])
+               Input('live-update-graph', 'hoverData')])
 def update_wait_time_graph(agent_table_json, time_filter):
     '''
     '''
@@ -355,7 +355,7 @@ def update_wait_time_graph(agent_table_json, time_filter):
 #--------------------------------------------------
 @app.callback(Output('agent-view-graph', 'figure'),
               [Input('agent_table', 'children'),
-               Input('live-update-graph', 'clickData')])
+               Input('live-update-graph', 'hoverData')])
 def update_agent_view(agent_table_json, time_filter):
     '''
     '''
@@ -430,7 +430,7 @@ def update_agent_view(agent_table_json, time_filter):
 #--------------------------------------------------
 @app.callback(Output('bp-graph', 'figure'),
               [Input('agent_table', 'children'),
-               Input('live-update-graph', 'clickData')])
+               Input('live-update-graph', 'hoverData')])
 def update_bp(agent_table_json, time_filter):
     '''
     '''
