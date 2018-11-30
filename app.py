@@ -17,7 +17,10 @@ from dash.dependencies import Input, Output, State
 import call_gen_demo as cgd
 
 #-------------------------------
-app = dash.Dash()
+app = dash.Dash(meta_tags=[{
+        'name': 'Operations Simulator',
+        'content': 'An illustrative tool to evaluate call waiting times based on simulated call arrival pattern and agent allocation',
+        'author': 'Aveedibya Dey'}])
 app.title = 'Operations Simulator'
 server = app.server
 
