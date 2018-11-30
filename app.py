@@ -20,8 +20,7 @@ import call_gen_demo as cgd
 app = dash.Dash(meta_tags=[{
         'name': 'description',
         'content': 'An illustrative tool to evaluate call waiting times based on simulated call arrival pattern and agent allocation. The interactive\
- graphical output shows expected interval brand promise and call waiting time impact. Agent allocation is also shown graphically. The plotly graphs\
- also enable cross-filtering, hence, hovering on any call-value point will filter the graphs and summary for that interval.'},
+ graphical output shows expected interval brand promise and call waiting time impact. Agent allocation is also shown graphically.'},
         {'name': 'author',
          'content': 'Aveedibya Dey'}])
 app.title = 'Operations Simulator'
